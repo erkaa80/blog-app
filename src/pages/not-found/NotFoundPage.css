@@ -1,0 +1,53 @@
+#not-found-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 800px;
+}
+
+#not-found {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+#code-container {
+  border-right: 1px solid #e8e8ea;
+  padding: 40px;
+}
+
+#not-found h1 {
+  font-size: 72px;
+  margin: 0;
+  line-height: 72px;
+  font-weight: 400;
+  color: #000;
+}
+
+#not-found-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-left: 40px;
+}
+
+#not-found-info h2 {
+  font-size: 24px;
+  margin: 0;
+  font-weight: 600;
+  color: #000;
+}
+
+#not-found-info p {
+  font-size: 18px;
+  line-height: 26px;
+  margin: 0;
+  font-weight: 400;
+  color: #696a75;
+}
+
+button {
+  cursor: pointer;
+}
