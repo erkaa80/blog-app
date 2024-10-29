@@ -31,14 +31,7 @@ export const HomePage = () => {
     <div id="image-container">
       <Header />
       <div>
-        <img
-          src="images/image3.png"
-          alt="background image"
-          style={{
-            width: "1200px",
-            height: "600px",
-          }}
-        />
+        <img src="images/image3.png" />
       </div>
 
       <div id="home-container">
