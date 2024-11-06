@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Footer, Header, TextField } from "../../components";
 import "./ContactUsPage.css";
+import { addDoc } from "firebase/firestore";
+import { contactsCollection } from "../../firebase";
 
 export const ContactUsPage = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async () => {
+    await addDoc(contactsCollection, {
+      email,
+      fullName,
+      subject,
+      message,
+    });
+
+    setEmail("");
+    setFullName("");
+    setSubject("");
+    setMessage("");
+
+    alert("Contact message sent successfully!");
+  };
+
   return (
     <div>
       <Header />
@@ -42,20 +65,35 @@ export const ContactUsPage = () => {
               style={{
                 width: "248px",
               }}
+              onChange={(e) => setFullName(e.target.value)}
+              value={fullName}
             />
             <TextField
               placeholder="Your email"
               style={{
                 width: "248px",
               }}
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
           </div>
 
-          <TextField placeholder="Subject" />
+          <TextField
+            placeholder="Subject"
+            onChange={(e) => setSubject(e.target.value)}
+            value={subject}
+          />
 
-          <textarea placeholder="Write a message" rows="6" />
+          <textarea
+            placeholder="Write a message"
+            rows="6"
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}
+          />
 
-          <Button style={{ width: "140px" }}>Send Message</Button>
+          <Button style={{ width: "140px" }} onClick={handleSubmit}>
+            Send Message
+          </Button>
         </div>
       </div>
 
