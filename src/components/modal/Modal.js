@@ -5,7 +5,7 @@ const style = {
   position: "absolute",
   top: "25%",
   left: "40%",
-  width: "600px",
+  width: "400px",
   height: "300px",
   borderRadius: "8px",
   bgcolor: "background.paper",
