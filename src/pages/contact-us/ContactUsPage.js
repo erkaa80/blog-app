@@ -10,20 +10,36 @@ export const ContactUsPage = () => {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
+  // 2 second
   const handleSubmit = async () => {
-    await addDoc(contactsCollection, {
-      email,
-      fullName,
-      subject,
-      message,
-    });
+    if (fullName === "" || email === "" || subject === "" || message === "") {
+      alert("Please fill out all the fields!");
+    } else {
+      console.log("Starting");
 
-    setEmail("");
-    setFullName("");
-    setSubject("");
-    setMessage("");
+      // Waiting to promise to be fullfilled or rejected
+      await addDoc(contactsCollection, {
+        email,
+        fullName,
+        subject,
+        message,
+      });
 
-    alert("Contact message sent successfully!");
+      setEmail("");
+      setFullName("");
+      setSubject("");
+      setMessage("");
+
+      console.log("Ending");
+      alert("Contact message sent successfully!");
+    }
+  };
+
+  console.log(handleSubmit());
+
+  const test = () => {
+    handleSubmit();
+    console.log("Example function");
   };
 
   return (
@@ -91,7 +107,7 @@ export const ContactUsPage = () => {
             value={message}
           />
 
-          <Button style={{ width: "140px" }} onClick={handleSubmit}>
+          <Button style={{ width: "140px" }} onClick={test}>
             Send Message
           </Button>
         </div>
