@@ -31,7 +31,7 @@ export const HomePage = () => {
   return (
     <div>
       <Header />
-      <img id="home-image" src="/images/image6.jpeg" />
+      <img id="home-image" src="/images/image3.png" />
       <div id="home-slider">
         <img src="/images/back.png" />
         <img src="/images/forward.png" />
