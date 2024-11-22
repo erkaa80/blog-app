@@ -31,6 +31,11 @@ export const HomePage = () => {
   return (
     <div>
       <Header />
+      <img id="home-image" src="images/image3.png" />
+      <div id="home-slider">
+        <img src="images/back.png" />
+        <img src="images/forward.png" />
+      </div>
 
       <div id="home-container">
         {currentUser ? (
@@ -43,6 +48,9 @@ export const HomePage = () => {
         ) : (
           <h3>Welcome, Guest!</h3>
         )}
+        <div id="home-trending">
+          <img src="images/content.png" />
+        </div>
       </div>
 
       <Footer />

@@ -7,3 +7,28 @@
   min-width: 800px;
   height: 500px;
 }
+#home-image {
+  width: 1210px;
+  height: 590px;
+  margin-left: 250px;
+  gap: 0px;
+  border-radius: 12px 0px 0px 0px;
+  opacity: 0px;
+}
+
+#home-slider {
+  margin-left: 1380px;
+}
+
+#home-slider img {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin-left: 2px;
+}
+
+#home-trending img {
+  width: 1230px;
+  height: 390px;
+  margin-top: 25px;
+}
