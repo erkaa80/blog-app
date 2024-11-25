@@ -31,6 +31,8 @@ export const HomePage = () => {
   return (
     <div>
       <Header />
+      <link rel="manifest" href="/manifest.json" />
+
       <img id="home-image" src="/images/image3.png" />
       <div id="home-slider">
         <img src="/images/back.png" />
