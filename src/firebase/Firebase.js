@@ -15,7 +15,6 @@ const firebaseConfig = {
   storageBucket: "blog-app-61610.firebasestorage.app",
   messagingSenderId: "471790230462",
   appId: "1:471790230462:web:9f0eede9c6ebba9d05b7ef",
-  measurementId: "G-3PYYPVDJLK",
 };
 
 export const app = initializeApp(firebaseConfig);
