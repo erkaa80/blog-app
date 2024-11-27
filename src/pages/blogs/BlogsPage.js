@@ -6,13 +6,10 @@ import {
   Header,
 } from "../../components";
 import "./BlogsPage.css";
-import { useBlogContext } from "../../context";
 
 export const BlogsPage = () => {
   const [openBlog, setOpenBlog] = useState(false);
   const [openTag, setOpenTag] = useState(false);
-
-  const { blogs } = useBlogContext();
 
   const handleOpenBlog = () => setOpenBlog(true);
   const handleCloseBlog = () => setOpenBlog(false);
@@ -33,10 +30,6 @@ export const BlogsPage = () => {
             Create Blog
           </Button>
         </div>
-
-        {blogs.map((blog, index) => (
-          <div key={index}>{blog.title}</div>
-        ))}
       </div>
       <CreateBlogModal open={openBlog} handleClose={handleCloseBlog} />
       <CreateTagModal open={openTag} handleClose={handleCloseTag} />

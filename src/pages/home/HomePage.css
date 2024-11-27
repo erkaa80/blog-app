@@ -1,11 +1,12 @@
 #home-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  padding: 0 40px;
-  min-width: 800px;
-  height: 500px;
+  #home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    min-width: 800px;
+  }
 }
 #home-image {
   width: 1210px;
@@ -25,10 +26,4 @@
   height: 40px;
   border-radius: 6px;
   margin-left: 2px;
-}
-
-#home-trending img {
-  width: 1230px;
-  height: 390px;
-  margin-top: 25px;
 }

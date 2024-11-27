@@ -1,18 +1,19 @@
 import React from "react";
 import { CircularProgress } from "@mui/material";
-import { Header, Footer, Button } from "../../components";
-import { useUserContext } from "../../context";
+import { Header, Footer, Button, Card } from "../../components";
+import { useBlogContext, useUserContext } from "../../context";
 import { signOutFunction } from "../../firebase";
 import "./HomePage.css";
 
 export const HomePage = () => {
   const { loading, currentUser } = useUserContext();
+  const { blogs, blogsLoading } = useBlogContext();
 
   const handleSignOut = async () => {
     await signOutFunction();
   };
 
-  if (loading) {
+  if (loading || blogsLoading) {
     return (
       <div
         style={{
@@ -31,7 +32,6 @@ export const HomePage = () => {
   return (
     <div>
       <Header />
-      <link rel="manifest" href="/manifest.json" />
 
       <img id="home-image" src="/images/image3.png" />
       <div id="home-slider">
@@ -50,8 +50,20 @@ export const HomePage = () => {
         ) : (
           <h3>Welcome, Guest!</h3>
         )}
-        <div id="home-trending">
-          <img src="/images/content.png" />
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 20,
+            marginTop: 100,
+          }}
+        >
+          {blogs.map((blog, index) => (
+            <div key={index}>
+              <Card blog={blog} index={index} />
+            </div>
+          ))}
         </div>
       </div>
 
