@@ -1,3 +1,3 @@
 export * from "./Modal";
-export * from "./CreateBlogModal";
-export * from "./CreateTagModal";
+export * from "./blog";
+export * from "./tag";

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Modal } from "./Modal";
+import { Modal } from "../Modal";
 import { Box, CircularProgress } from "@mui/material";
-import { TextField } from "../textfield";
-import { Button } from "../button";
+import { TextField } from "../../textfield";
+import { Button } from "../../button";
 import { addDoc, serverTimestamp } from "firebase/firestore";
-import { tagsCollection } from "../../firebase";
+import { tagsCollection } from "../../../firebase";
 
 export const CreateTagModal = (props) => {
   const { open, handleClose } = props;

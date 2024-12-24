@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Modal } from "./Modal";
+import { Modal } from "../Modal";
 import { Box, CircularProgress, MenuItem, Select } from "@mui/material";
-import { TextField } from "../textfield";
-import { Button } from "../button";
+import { TextField } from "../../textfield";
+import { Button } from "../../button";
 import { addDoc, serverTimestamp } from "firebase/firestore";
-import { blogsCollection } from "../../firebase";
-import { useTagContext, useUserContext } from "../../context";
+import { blogsCollection } from "../../../firebase";
+import { useTagContext, useUserContext } from "../../../context";
+import { uploadImage } from "../../cloudinary";
 
 export const CreateBlogModal = (props) => {
   const { open, handleClose } = props;
@@ -18,6 +19,7 @@ export const CreateBlogModal = (props) => {
     tag: "",
   });
   const [loading, setLoading] = useState(false);
+  const [file, setFile] = useState();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -29,16 +31,20 @@ export const CreateBlogModal = (props) => {
       blogData.content === "" ||
       blogData.description === "" ||
       blogData.title === "" ||
-      blogData.tag === ""
+      blogData.tag === "" ||
+      !file
     ) {
       alert("Please fill all the fields!");
     } else {
       setLoading(true);
 
+      const previewLink = await uploadImage(file);
+
       await addDoc(blogsCollection, {
         title: blogData.title,
         description: blogData.description,
         content: blogData.content,
+        imageURL: previewLink,
         createdAt: serverTimestamp(),
         userId: currentUser.uid,
         tagId: blogData.tag,
@@ -51,8 +57,10 @@ export const CreateBlogModal = (props) => {
         tag: "",
       });
 
-      handleClose();
+      setFile();
       setLoading(false);
+
+      handleClose();
     }
   };
 
@@ -121,6 +129,13 @@ export const CreateBlogModal = (props) => {
               </MenuItem>
             ))}
           </Select>
+
+          <input
+            type="file"
+            onChange={(e) => {
+              setFile(e.target.files[0]);
+            }}
+          />
 
           <Box sx={{ display: "flex", gap: "60px" }}>
             <Button onClick={handleClose}>Cancel</Button>

@@ -7,6 +7,7 @@ import {
   NotFoundPage,
   SignInPage,
   SignUpPage,
+  TagsPage,
 } from "./pages";
 
 export const App = () => {
@@ -14,6 +15,7 @@ export const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/tags" element={<TagsPage />} />
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/blogs/:id" element={<BlogPage />} />
         <Route path="/contact-us" element={<ContactUsPage />} />
